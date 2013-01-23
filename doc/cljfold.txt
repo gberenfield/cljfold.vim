@@ -1,4 +1,4 @@
-*cljfold.txt*   Provides semantic folding for Clojure files within Vim.
+*cljfold.txt*          Provides semantic folding for Clojure files within Vim.
 
 ==============================================================================
 Author:  Greg Berenfield <gberenfield@gmail.com>              *cljfold-author*
@@ -21,20 +21,20 @@ By default, folding will happen on code-blocks starting with "def" and
 "ns". This behevaior can be changed in your vimrc file by setting
 g:clojure_foldwords to a comma-separated string of words to be included.
 
-For example: >
-
+For example:
+>
     let g:clojure_foldwords = "def,ns,run,demo"
-
+<
 would fold the likes of code-blocks such as
-
-(demo 10 
+>
+(demo 10
   (buf-rd 2 flute-buf ...
-
+<
 and
-
+>
 (run* [q]
    (== {:a q :b 2} {:a 1 :b 2}))
-
+<
 ==============================================================================
 LICENSE                                                      *cljfold-license*
 
