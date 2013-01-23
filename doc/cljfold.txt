@@ -1,0 +1,14 @@
+*cljfold.txt*   Plugin that provides semantic folding for Clojure files with Vim
+
+==============================================================================
+Author:  Greg Berenfield <gberenfield@gmail.com>              *cljfold-author*
+License: Same terms as Vim itself (see |license|)
+
+==============================================================================
+INTRODUCTION                                                         *cljfold*
+
+This plugin is simply to provide folding for Clojure source code in vim
+based on code-blocks as defined in the 'foldwords' variable.
+
+Folding happens by default and can be toggled by
+
