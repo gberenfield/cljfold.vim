@@ -2,7 +2,7 @@
 
 ==============================================================================
 Author:  Greg Berenfield <gberenfield@gmail.com>              *cljfold-author*
-License: Same terms as Vim itself (see |license|)
+License: GPL v2
 
 ==============================================================================
 INTRODUCTION                                                   *cljfold-intro*
@@ -27,13 +27,13 @@ For example:
 <
 would fold the likes of code-blocks such as
 >
-(demo 10
-  (buf-rd 2 flute-buf ...
+    (demo 10
+      (buf-rd 2 flute-buf ...
 <
 and
 >
-(run* [q]
-   (== {:a q :b 2} {:a 1 :b 2}))
+    (run* [q]
+       (== {:a q :b 2} {:a 1 :b 2}))
 <
 ==============================================================================
 LICENSE                                                      *cljfold-license*
