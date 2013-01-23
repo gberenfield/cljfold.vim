@@ -1,12 +1,9 @@
-let loaded_clojurefolding=1
-" really needed???
-
-"" Defintions: what to fold?
-let g:clojure_foldwords="def,ns"
-""
+if !exists('g:clojure_foldwords')
+  let g:clojure_foldwords = "def,ns"
+endif
 
 function! CompareLispword(line)
-  let fwc = split(clojure_foldwords,",")
+  let fwc = split(g:clojure_foldwords,",")
 
   for fw in fwc
     if a:line =~ '^\s*('.fw.'.*\s'
@@ -15,7 +12,7 @@ function! CompareLispword(line)
   endfor
 endfunction
 
-function GetClojureFold()
+function! GetClojureFold()
       if CompareLispword(getline(v:lnum))
         return ">1"
       elseif getline(v:lnum) =~ '^\s*$'
@@ -41,14 +38,14 @@ function GetClojureFold()
       endif
 endfunction
 
-function! ToggleClojureFolding()
-  if clojure_folding
-    setlocal foldenable&
-    let clojure_folding=0
-  else
-    setlocal foldexpr=GetClojureFold()
-    setlocal foldmethod=expr
-    let clojure_folding=1
-  endif
+function! StartClojureFolding()
+  setlocal foldexpr=GetClojureFold()
+  setlocal foldmethod=expr
 endfunction
 
+augroup ft_clojure
+    au!
+    au BufNewFile,BufRead *.clj set filetype=clojure
+    au FileType clojure silent! call StartClojureFolding()
+    au FileType clojure setlocal report=100000
+augroup END
