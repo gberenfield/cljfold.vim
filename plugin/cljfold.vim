@@ -6,7 +6,9 @@ function! CompareLispword(line)
   let fwc = split(g:clojure_foldwords,",")
 
   for fw in fwc
-    if a:line =~ '^\s*('.fw.'.*\s'
+    if a:line =~ '^\s*('.fw.'.*'
+      return 1
+    elseif a:line =~ '^\s*(\w*/'.fw.'.*'
       return 1
     endif
   endfor
